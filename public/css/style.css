@@ -33,7 +33,6 @@ header {
 .nav li {
     float: left;
     font-family: monospace;
-    font-size: x-large;
     padding-top: 20%;
     padding-bottom: 25%;
   }
@@ -41,6 +40,7 @@ header {
 .nav li a {
     display: block;
     color: white;
+    font-size: xx-large;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -79,13 +79,16 @@ main {
 .main_body {
     padding: 20px 20px 20px 20px;
     font-size: xx-large;
-
-
 }
 
-.main_body a {
-    text-decoration: none;
+.main_body .stack {
+    font-size: x-large;
 }
+
+.main_body .task {
+    font-size: x-large;
+}
+
 
 footer {
     width: 100%;
