@@ -15,9 +15,3 @@ this is my personal **blog** where I would write
 
 - HTML & CSS
 - Node.js
-
----
-
-# Tasks
-
-- [ ]  Build a Rest API.
