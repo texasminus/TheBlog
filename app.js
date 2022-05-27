@@ -1,18 +1,32 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mongoose = require('mongoose');
+
+//Data Processing Middlewares
+const bodyParser = require('body-parser')
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 app.use(express.json()); // Need this to use req.body
-//Data
-const users = [
+// Database
+mongoose.connect('mongodb+srv://nws0078:Park8785^^@apal.oi4gf.mongodb.net/?retryWrites=true&w=majority');
+const db = mongoose.connection;
+db.on('error', (error) => console.error(error));
+db.once('open', () => console.log('Connected to Database'));
 
-];
 //Static Folder 'Public'
 app.use(express.static(path.join(__dirname,'public')));
 
 // GET
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/main.html');
+});
+
+app.get('/createAccount', (req, res) => {
+    res.sendFile(__dirname + '/views/createAccount.html');
 });
 
 app.get('/about', (req, res) => {
@@ -23,16 +37,9 @@ app.get('/blog', (req, res) => {
     res.sendFile(__dirname + '/views/blog.html');
 });
 
-// POST
-app.post('/', (req, res) => {
-    const user = {
-        id: users.length + 1,
-        Name: req.query.Name,
-        Password: req.query.Password
-    };
-    users.push(user); //add it to the original object
-    res.send(user);    //return it
-});
+// Importing a router for Admin
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter); // middleware functions that have access to req & res
 
 
 // Listening

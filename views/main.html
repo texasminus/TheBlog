@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/admin.js" defer></script> -->
     <title>The Curiosity</title>
-    <script src="js/admin.js" defer></script>
 </head>
 <body>
     <div style="color:black">don't spend too much time on css..</div>
@@ -16,12 +16,17 @@
             <div class="nav">
                 <ul class="navigators">
                     <li id="about"><a href="/about">About</a></li>
-                    <li id="blog" hidden><a href="/blog">Blog</a></li>
+                    <li id="blog"><a href="/blog">Blog</a></li>
                 </ul>
             </div>
         </header>
         <main>
-            <div id="loginDiv">
+            <div class="admin">
+                <h2>Admin</h2>
+                <a href="/createAccount">Create Account</a>
+            </div>
+            <!-- <div id="loginDiv">
+                <h2>Create Account</h2>
 				<input type="text" id="username" value="" name="username" placeholder="username" required>
 				<input type="password" id="password" value="" name="password" placeholder="password" required>
 
@@ -31,8 +36,8 @@
 					<input type="button" id="createUserButton" value="Create User">
 					<input type="button" id="changePasswordButton" value="Change Password" hidden>
 				</div>
-			</div>
-            <div class="main_body" hidden>
+			</div> -->
+            <div class="main_body">
                 <div id="intro">Hi! My name is SeongHo. Let's write some code!</div>
                 <div class="goal">
                     <h3>To dos</h3>
@@ -40,7 +45,7 @@
                         <li>Write all htmls</li>
                         <li><strong>Write Javascript</strong></li>
                         <li>Backend in NodeJS</li>
-                        <li>Database in SQLite</li>
+                        <li>Database in MongoDB</li>
                     </ul>
                 </div>
             </div>
