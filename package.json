@@ -1,5 +1,5 @@
 {
-  "name": "thecuriosity",
+  "name": "theblog",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nws0078/TheCuriosity.git"
+    "url": "git+https://github.com/nws0078/TheBlog.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nws0078/TheCuriosity/issues"
+    "url": "https://github.com/nws0078/TheBlog/issues"
   },
-  "homepage": "https://github.com/nws0078/TheCuriosity#readme",
+  "homepage": "https://github.com/nws0078/TheBlog#readme",
   "dependencies": {
     "express": "^4.18.1",
     "mongoose": "^6.3.4"
