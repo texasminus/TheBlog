@@ -1,4 +1,4 @@
-# TheCuriosity
+# TheBlog
 ## *What is this?*
 
 My 1# Web Development (Front-end & Back-end) **RESTful API** Project
