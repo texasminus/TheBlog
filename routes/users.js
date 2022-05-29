@@ -7,6 +7,7 @@ const router = express.Router();
 // Importing a Schema
 const User = require('../models/user');
 
+//Creating Routes
 //GET all users
 router.get('/', async (req, res)=>{
     try {
@@ -24,8 +25,9 @@ router.get('/:id', getUser, async (req, res)=>{
 
 // POST (Create)
 router.post('/', async (req, res)=>{
-    console.log("Received Username: "+req.body.username)
-    console.log("Received Password: "+req.body.password)
+    console.log("Created User Account");
+    console.log("username: "+req.body.username);
+    console.log("password: "+req.body.password);
     const user = new User({
         username: req.body.username,
         password: req.body.password
