@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="routes/login.js" defer></script>
+    <title>The Blog</title>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div id="siteId"><h1><a href="/loggedin">The Blog</a></h1></div>
+            <div class="nav">
+                <ul class="navigators">
+                    <li id="about"><a href="/about">About</a></li>
+                    <li id="blog"><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div class="admin">
+                <h2>Admin</h2>
+                <div style="background-color: lightgreen;">Logged in</div> <!--  Logged in as username -->
+            </div>
+            <div class="main_body">
+                <div id="intro">Hi! My name is SeongHo.</div>
+                <div class="stack">
+                    <hr class="solid">
+                    <h4>Stack</h4>
+                    <ul class="stack">
+                        <li>HTML & CSS</li>
+                        <li>Node.js</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+                <div class="task">
+                    <hr class="solid">
+                    <h4>Tasks</h4>
+                    <ul class="tasks">
+                        Currently working on...
+                        <li>Admin (Login, Logout, Delete Account)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home_image">
+                <img src="img/nebula.jpeg" alt="horsehead nebula" height="400px">
+                <figcaption>Horsehead Nebula - Barnard 33</figcaption>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

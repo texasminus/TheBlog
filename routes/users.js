@@ -2,12 +2,10 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router();
 
-
-
 // Importing a Schema
 const User = require('../models/user');
 
-//Creating Routes
+//-----------------Creating Routes-----------------
 //GET all users
 router.get('/', async (req, res)=>{
     try {

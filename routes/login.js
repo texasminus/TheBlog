@@ -2,23 +2,24 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router();
 const path = require('path');
+const date = new Date();
 
 // Importing a Schema
 const User = require('../models/user');
 
-router.get('/', async (req, res)=>{
+router.post('/', async (req, res)=>{
     try {
         const user = await User.find({ 
-            username: req.query.username,
-            password: req.query.password
+            username: req.body.username,
+            password: req.body.password
         });
+        console.log("Login Try "+date.toLocaleTimeString());
         console.log(user);
-        console.log(typeof user); //it's an object but why []?
         if (user.length != 0){
-            res.redirect('/');
+            res.redirect('/loggedin');
             console.log("Logged in successfully!!");
         } else {
-            res.status(404).send("User Not Found");
+            res.redirect('/404')
             console.log("User Not Found");
         };
     } catch(err) {

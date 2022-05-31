@@ -22,30 +22,16 @@
         <main>
             <div class="admin">
                 <h2>Admin</h2>
-                <form action="http://localhost:3000/login" method="GET">
+                <form action="http://localhost:3000/login" method="POST">
                     <label for="username">username:</label><br>
                     <input type="text" id="username" name="username" required><br>
                     <label for="password">password:</label><br>
-                    <input type="text" id="password" name="password" required>
+                    <input type="password" id="password" name="password" required>
                     <input type="submit" value="Login">
                 </form>
-                <br />
-                <a href="/register">Register</a>
             </div>
-            <!-- <div id="loginDiv">
-                <h2>Create Account</h2>
-				<input type="text" id="username" value="" name="username" placeholder="username" required>
-				<input type="password" id="password" value="" name="password" placeholder="password" required>
-
-				<div id="buttons">
-					<input type="button" id="loginButton" value="Login">
-					<input type="button" id="logoutButton" value="Logout">
-					<input type="button" id="createUserButton" value="Create User">
-					<input type="button" id="changePasswordButton" value="Change Password" hidden>
-				</div>
-			</div> -->
             <div class="main_body">
-                <div id="intro">Hi! My name is SeongHo. Let's write some code!</div>
+                <div id="intro">Hi! My name is SeongHo.</div>
                 <div class="stack">
                     <hr class="solid">
                     <h4>Stack</h4>
@@ -64,7 +50,10 @@
                     </ul>
                 </div>
             </div>
-
+            <div class="home_image">
+                <img src="img/nebula.jpeg" alt="horsehead nebula" height="400px">
+                <figcaption>Horsehead Nebula - Barnard 33</figcaption>
+            </div>
         </main>
     </div>
 </body>
