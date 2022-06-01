@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const date = new Date();
 const express = require('express');
 const app = express();
@@ -7,9 +8,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 
-const mongoURI = 'mongodb+srv://nws0078:Park8785^^@apal.oi4gf.mongodb.net/?retryWrites=true&w=majority';
 
-
+const db_url = process.env.MONGO_URL;
 
 // //Data Processing Middlewares
 app.use(express.urlencoded({extended: false}));
@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // -----------------Database-----------------
-mongoose.connect('mongodb+srv://nws0078:Park8785^^@apal.oi4gf.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(db_url);
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database\n'));
@@ -26,7 +26,7 @@ db.once('open', () => console.log('Connected to Database\n'));
 
 // -----------------Session-----------------
 const store = new MongoDBSession({
-    uri: mongoURI,
+    uri: db_url,
     collection: 'mySessions'
 });
 
