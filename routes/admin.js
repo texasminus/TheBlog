@@ -1,11 +1,14 @@
 const express =require('express');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const { route } = require('express/lib/application');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const path = require('path');
 const date = new Date();
 const app = express();
+
+app.use(cookieParser());
 
 // Importing a Schema
 const User = require('../models/user');
@@ -30,6 +33,8 @@ router.post('/', async (req, res)=>{
         };
 
         req.session.isAuth = true;
+        req.session.username = username;
+        console.log('Logged in successfully!')
         res.redirect('/loggedin');
         
     } catch(err) {
@@ -41,11 +46,13 @@ router.post('/', async (req, res)=>{
 router.post('/logout', (req, res) => {
     req.session.destroy((err)=>{
         if(err) throw err;
+        console.log('Logged out')
         res.redirect('/');
     });
 });
 
-//-----------------Creating Routes-----------------
+
+//----------------Register----------------
 // Register (GET)
 router.get('/register', (req, res)=>{
     res.sendFile(path.dirname(__dirname)+'/views/register.html');

@@ -13,7 +13,6 @@ const adminRouter = require('./routes/admin');
 const articleRouter = require('./routes/articles');
 
 const db_url = process.env.MONGO_URL;
-console.log(db_url);
 
 // //Data Processing Middlewares
 app.use(express.urlencoded({extended: false}));
@@ -28,8 +27,7 @@ app.use(express.static(path.join(__dirname,'public')));
 mongoose.connect(db_url);
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to Database\n'));
-
+db.once('open', () => console.log('Connected to Database\n----------------------------------'));
 
 // -----------------Session-----------------
 const store = new MongoDBSession({
