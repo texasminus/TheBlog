@@ -6,7 +6,6 @@ createArticle.addEventListener('click', function(){
     let data = new Object();
     element.appendChild(title);
     list.appendChild(element);
-
 });
 
 

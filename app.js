@@ -7,7 +7,10 @@ const mongoose = require('mongoose');
 
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
+const connectMongodbSession = require('connect-mongodb-session');
 
+const adminRouter = require('./routes/admin');
+const articleRouter = require('./routes/articles');
 
 const db_url = process.env.MONGO_URL;
 
@@ -16,6 +19,9 @@ app.use(express.urlencoded({extended: false}));
 
 // Middleware that parses HTTP requests with JSON body
 app.use(express.json());
+
+//--------Static Folder 'public'--------
+app.use(express.static(path.join(__dirname,'public')));
 
 // -----------------Database-----------------
 mongoose.connect(db_url);
@@ -46,28 +52,10 @@ const isAuth = (req, res, next) => {
     };
 };
 
-
-//--------Static Folder 'public'--------
-app.use(express.static(path.join(__dirname,'public')));
-
 // -----------------GET-----------------
 // Home
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/main.html');
-});
-
-// Login 
-app.get('/loggedin', isAuth,(req, res) => {
-    res.sendFile(__dirname + '/views/loggedin.html');
-});
-
-// Register
-app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/views/register.html');
-});
-// 404 Error
-app.get('/404', (req, res) => {
-    res.sendFile(__dirname + '/views/404.html');
 });
 
 // About
@@ -75,29 +63,21 @@ app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/views/about.html');
 });
 
-// Blog
-app.get('/blog', (req, res) => {
-    res.sendFile(__dirname + '/views/blog.html');
+// Login 
+app.get('/loggedin', isAuth,(req, res) => {
+    res.sendFile(__dirname + '/views/loggedin.html');
 });
 
-// Logout
-app.post('/logout', (req, res) => {
-    req.session.destroy((err)=>{
-        if(err) throw err;
-        res.redirect('/');
-    });
+// 404 Error
+app.get('/404', (req, res) => {
+    res.sendFile(__dirname + '/views/404.html');
 });
 
 
-// ----------------Middlewares---------------- 
-// All requests to API begin with /register 
-const registerRouter = require('./routes/register');
-const loginRouter = require('./routes/login');
-const connectMongodbSession = require('connect-mongodb-session');
-
-// The app.use("/register", router) call means all valid URLs must start with the path /register
-app.use('/register', registerRouter); // middleware functions that have access to req & res
-app.use('/login', loginRouter);
+// The app.use("/admin", router) call means all valid URLs must start with the path /admin
+// middleware functions that have access to req & res
+app.use('/admin', adminRouter);
+app.use('/articles', articleRouter); 
 
 // -----------------Listening-----------------
 app.listen(3000, ()=>{

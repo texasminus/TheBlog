@@ -68,6 +68,7 @@ main {
     width: 100%;
     height: 700px;
     display: flex;
+    padding: 2%;
 }
 
 #loginDiv {
@@ -75,7 +76,7 @@ main {
 }
 
 .admin {
-    margin-right: 10%;
+    width: 300px;
 }
 
 .main_body {
@@ -99,6 +100,6 @@ footer {
 }
 
 .home_image {
-    padding-top: 5%;
+    padding-top: 2%;
     padding-left: 8%;
 }

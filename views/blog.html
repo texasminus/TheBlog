@@ -5,13 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <script src="js/blog.js" defer></script>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-        }
-        #articles {
             display: flex;
             flex-direction: column;
         }
@@ -21,13 +16,6 @@
     <div>
         <p>I write here</p>
     </div>
-    <div id="articles">
-        <label for="title">Title</label>
-        <input type="text" id="title" placeholder="title" style="width: 150px;">
-        <label for="content">Content</label>
-        <input type="text" id="content" placeholder="text" style="height: 150px;">
-        <button id="createArticle" style="width: 100px;">New Article</button>
-        <div id="list" style="display: flex; flex-direction:column;"></div>
-    </div>
+    <a href="/articles/newArticle">New Article</a>
 </body>
 </html>
