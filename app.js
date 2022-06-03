@@ -13,6 +13,7 @@ const adminRouter = require('./routes/admin');
 const articleRouter = require('./routes/articles');
 
 const db_url = process.env.MONGO_URL;
+console.log(db_url);
 
 // //Data Processing Middlewares
 app.use(express.urlencoded({extended: false}));
