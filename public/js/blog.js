@@ -1,11 +1,8 @@
-createArticle.addEventListener('click', function(){
-    let list = document.getElementById("list");
-    let element = document.createElement("a");
-    let title = document.createTextNode(document.getElementById("title").value);
-    let content = document.createTextNode(document.getElementById("content").value);
-    let data = new Object();
-    element.appendChild(title);
-    list.appendChild(element);
-});
-
-
+createArticle.addEventListener("click", function(){
+    let params = "title="+title.value+"&content="+content.value;
+    let ajax = new XMLHttpRequest();
+    ajax.responseType = "json";
+    ajax.open("POST", "http://localhost:3000/articles/newArticle");
+    ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    ajax.send(params);
+})

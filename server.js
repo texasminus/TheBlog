@@ -14,7 +14,7 @@ const articleRouter = require('./routes/articles');
 
 const db_url = process.env.MONGO_URL;
 
-// //Data Processing Middlewares
+//Data Processing Middlewares
 app.use(express.urlencoded({extended: false}));
 
 // Middleware that parses HTTP requests with JSON body
