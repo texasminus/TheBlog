@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>The Blog</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<title>The Blog</title>
 </head>
 <body>
-    <div id="wrap">
-        <header>
-            <div id="siteId"><h1><a href="/">The Blog</a></h1></div>
-            <div class="nav">
-                <ul class="navigators">
-                    <li id="about"><a href="/about">About</a></li>
-                    <li id="blog" hidden><a href="/blog">Blog</a></li>
-                </ul>
-            </div>
-        </header>
-        <main>
-            <div class="admin">
-                <h2>Admin</h2>
-                <form action="http://localhost:3000/admin/" method="POST">
-                    <label for="username">username:</label><br>
-                    <input type="text" id="username" name="username" required><br>
-                    <label for="password">password:</label><br>
-                    <input type="password" id="password" name="password" required>
-                    <input type="submit" value="Login">
-                </form>
-                <a href="/admin/register">Register</a>
-                <!-- <input type="text" name="username" id="username" placeholder="username"><br />
-                <input type="password" name="password" id="password" placeholder="password"><br />
-                <button onclick="postLoginData()">Submit</button> -->
-            </div>
-            <div class="main_body">
-                <div id="intro">Hi! My name is SeongHo.</div>
-                <div class="stack">
-                    <hr class="solid">
-                    <h4>Stack</h4>
-                    <ul class="stack">
-                        <li>HTML & CSS</li>
-                        <li>Node.js</li>
-                        <li>MongoDB</li>
-                    </ul>
-                </div>
-                <div class="task">
-                    <hr class="solid">
-                    <h4>Tasks</h4>
-                    <ul class="tasks">
-                        Currently working on...
-                        <li>Delete Account</li>
-                        <li>Blog Posting</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="home_image">
-                <img src="img/nebula.jpeg" alt="horsehead nebula" height="400px">
-                <figcaption>Horsehead Nebula - Barnard 33</figcaption>
-            </div>
-        </main>
+<div id="wrap">
+  <header>
+    <div id="siteId"><h1><a href="/">The Blog</a></h1></div>
+    <div class="nav">
+      <ul class="navigators">
+        <li id="about"><a href="/about">About</a></li>
+        <li id="blog" hidden><a href="/blog">Blog</a></li>
+      </ul>
     </div>
+  </header>
+  <main>
+    <div class="admin">
+      <h2>Admin</h2>
+      <form action="http://localhost:3000/admin/" method="POST">
+        <label for="username">username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">password:</label><br>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+      </form>
+      <a href="/admin/register">Register</a>
+      <!-- <input type="text" name="username" id="username" placeholder="username"><br />
+      <input type="password" name="password" id="password" placeholder="password"><br />
+      <button onclick="postLoginData()">Submit</button> -->
+    </div>
+    <div class="main_body">
+      <div id="intro">Hi! My name is SeongHo.</div>
+      <div class="stack">
+        <hr class="solid">
+        <h4>Stack</h4>
+        <ul class="stack">
+            <li>HTML & CSS</li>
+            <li>Node.js</li>
+            <li>MongoDB</li>
+        </ul>
+      </div>
+      <div class="task">
+        <hr class="solid">
+        <h4>Tasks</h4>
+        <ul class="tasks">
+            Currently working on...
+            <li>Delete Account</li>
+            <li>Blog Posting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="home_image">
+      <img src="img/nebula.jpeg" alt="horsehead nebula" height="400px">
+      <figcaption>Horsehead Nebula - Barnard 33</figcaption>
+    </div>
+  </main>
+</div>
 </body>
 </html>

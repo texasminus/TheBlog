@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            width: 100%;
-            height: 100%;
-        }
-        .form-center {
-            display: grid;
-            height: 100vh;
-            place-items: center;
-        }
-        #registerForm {
-            padding: 20px;
-            border: dotted 1px;
-        }
-        #home_link {
-            text-decoration: none;
-            color: rgb(46, 46, 171);
-        }
-    </style>
-    <title>Create Account</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      width: 100%;
+      height: 100%;
+    }
+    .form-center {
+      display: grid;
+      height: 100vh;
+      place-items: center;
+    }
+    #registerForm {
+      padding: 20px;
+      border: dotted 1px;
+    }
+    #home_link {
+      text-decoration: none;
+      color: rgb(46, 46, 171);
+    }
+  </style>
+  <title>Create Account</title>
 </head>
 <body>
-    <div class="form-center">
-        <form action="http://localhost:3000/admin/register" method="POST" id="registerForm">
-            <h1><a href="/" id="home_link">The Blog</a></h1>
-            <h2>Sign Up</h2>
-            <label for="username">username:</label>
-            <input type="text" id="username" name="username"><br><br>
-            <label for="password">password:</label>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Register" style="width: 216px;">
-        </form>
-    </div>
+  <div class="form-center">
+    <form action="http://localhost:3000/admin/register" method="POST" id="registerForm">
+      <h1><a href="/" id="home_link">The Blog</a></h1>
+      <h2>Sign Up</h2>
+      <label for="username">username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      <label for="password">password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      <input type="submit" value="Register" style="width: 216px;">
+    </form>
+  </div>
 </body>
 </html>

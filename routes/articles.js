@@ -1,34 +1,52 @@
-const { resolveSoa } = require('dns');
-const express =require('express');
-const path = require('path');
-const article = require('../models/article');
+const express = require('express');
+const { redirect } = require('express/lib/response');
 const router = express.Router();
-const app = express();
+const Article = require('./../models/article');
 
-const Article = require('../models/article');
+router.get('/new', (req, res)=>{
+  res.render('articles/new', { article : new Article() })
+}); 
 
-router.get('/', (req, res)=>{
-    res.sendFile(path.dirname(__dirname) + '/views/blog.html');
+router.get('/:id', async (req, res)=>{
+  const article = await Article.findOne({slug: req.params.id});
+  if(article==null) res.redirect('/');
+  res.render('articles/show', { article: article })
 });
 
-router.get('/newArticle', (req, res)=>{
-    res.sendFile(path.dirname(__dirname) + '/views/newArticle.html');
+router.get('/edit/:id', async (req, res)=>{
+  const article = await Article.findById(req.params.id);
+  res.render('articles/edit', {article: article})
 });
 
+router.post('/', async (req, res, next)=>{
+  req.article = new Article();
+  next();
+}, saveArticleAndRedirect('new'));
 
-router.post('/newArticle', async (req, res)=>{
-    const { title, content } = req.body;
-    const article = new Article({
-        title,
-        content
-    });
+router.put('/:id', async (req, res, next)=>{
+  req.article = await Article.findById(req.params.id)
+  next();
+}, saveArticleAndRedirect('edit'));
+
+router.delete('/:id', async (req, res)=>{
+  await Article.findByIdAndDelete(req.params.id);
+  res.redirect('/articles')
+});
+
+function saveArticleAndRedirect(path){
+  return async (req, res) => {
+    let article = req.article;
+    article.title = req.body.title,
+    article.description = req.body.description,
+    article.markdown = req.body.markdown
     try {
-        console.log("Title: "+req.body.title);
-        console.log("Content: "+req.body.content+"\n");
-        const newArticle = await article.save();
-    } catch(err){
-        res.status(400).json({ message: err.message })
-    };
-});
+      article = await article.save();
+      res.redirect(`/articles/${ article.slug }`);
+    } catch (e) {
+      console.log(e);
+      res.render(`articles/${path}`, { article: article }) //render article so that it will pre-fill the forms to continue to write.
+    }
+  }
+};
 
 module.exports = router;
